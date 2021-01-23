@@ -63,11 +63,10 @@ public class EstimateController {
      * @return 遷移先
      */
 
-
-    //@PostMapping(value = "submit", params = "backToTop")
-    //String backToTop(Model model) {
-        //return "top";
-    //}
+    @PostMapping(value = "submit", params = "backToTop")
+    String backToTop(Model model) {
+        return "top";
+    }
 
     /**
      * 確認画面に遷移する。
