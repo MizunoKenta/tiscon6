@@ -22,7 +22,13 @@ body {
 }
 
 .btn-top {
-    width: 30%;
+    background: #FF0000;
+    width: 50%;
+    height: 80px;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 50px;
+    opacity: 0.3;
 }
 
 .ui.main.container {
