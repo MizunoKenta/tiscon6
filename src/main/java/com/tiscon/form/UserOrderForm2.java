@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
  *
  * @author Oikawa Yumi
  */
-public class UserOrderForm2 extends UserOrderForm{
+public class UserOrderForm2{
 
 
     @NotBlank(message="氏名が未入力です。")
@@ -26,8 +26,6 @@ public class UserOrderForm2 extends UserOrderForm{
     @NotBlank(message="連絡先メールアドレスが未入力です。")
     private String email;
 
-
-    /*
     @NotBlank(message="転居元住所（都道府県）が未選択です。")
     private String oldPrefectureId;
 
@@ -63,8 +61,6 @@ public class UserOrderForm2 extends UserOrderForm{
     @NotNull(message="洗濯機の設置工事申し込みが未選択です。")
     private boolean washingMachineInstallation;
 
-     */
-
     public String getCustomerName() {
         return customerName;
     }
@@ -88,7 +84,6 @@ public class UserOrderForm2 extends UserOrderForm{
     public void setEmail(String email) {
         this.email = email;
     }
-    /*
 
 
     public String getOldPrefectureId() {
@@ -168,5 +163,4 @@ public class UserOrderForm2 extends UserOrderForm{
         this.washingMachineInstallation = washingMachineInstallation;
     }
 
-     */
 }
