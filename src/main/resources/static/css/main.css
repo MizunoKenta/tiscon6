@@ -202,3 +202,27 @@ ul.label {
 td {
     width: 400px;
 }
+
+.ali {
+    color: #FF4500;
+}
+
+h1{
+    border-bottom: 5px solid #000;
+}
+
+.ngt{
+    position: relative;
+    padding: 1rem 2rem calc(1rem + 8px);
+    background: #fff;
+}
+
+.ngt:before{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    content: '';
+    border: 4px solid #000;
+}
