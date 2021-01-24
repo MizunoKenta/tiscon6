@@ -11,6 +11,7 @@ import javax.validation.constraints.*;
  */
 public class UserOrderForm {
 
+
     @NotBlank(message="氏名が未入力です。")
     private String customerName;
 
@@ -21,6 +22,7 @@ public class UserOrderForm {
     @Email(message="連絡先メールアドレスは、メールの形式で入力してください。")
     @NotBlank(message="連絡先メールアドレスが未入力です。")
     private String email;
+
 
     @NotBlank(message="転居元住所（都道府県）が未選択です。")
     private String oldPrefectureId;
