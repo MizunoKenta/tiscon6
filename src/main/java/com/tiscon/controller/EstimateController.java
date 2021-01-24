@@ -56,6 +56,17 @@ public class EstimateController {
         return "input";
     }
 
+    // 新しく追加
+    @GetMapping("input2")
+    String input2(Model model) {
+        if (!model.containsAttribute("userOrderForm")) {
+            model.addAttribute("userOrderForm", new UserOrderForm());
+        }
+
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        return "input2";
+    }
+
     /**
      * TOP画面に戻る。
      *
