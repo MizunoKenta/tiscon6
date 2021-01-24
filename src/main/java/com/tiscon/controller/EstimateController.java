@@ -155,23 +155,25 @@ public class EstimateController {
     /**
      * 申し込み完了画面に遷移する。
      *
-     * @param userOrderForm2 顧客が入力した見積もり依頼情報
+     * @param userOrderForm 顧客が入力した見積もり依頼情報
      * @param result        精査結果
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
-    @PostMapping(value = "input2", params = "confirm2")
-    String complete(@Validated UserOrderForm2 userOrderForm2, BindingResult result, Model model) {
+    @PostMapping(value = "input2")
+    String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
-            model.addAttribute("userOrderForm", userOrderForm2);
+            model.addAttribute("userOrderForm", userOrderForm);
             return "confirm";
         }
 
-        UserOrderDto dto = new UserOrderDto();
-        BeanUtils.copyProperties(userOrderForm2, dto);
-        estimateService.registerOrder(dto);
+//        UserOrderDto dto = new UserOrderDto();
+//        BeanUtils.copyProperties(userOrderForm, dto);
+//        estimateService.registerOrder(dto);
+
+        model.addAttribute("userOrderForm", userOrderForm);
 
         return "input2";
     }

@@ -12,19 +12,17 @@ import javax.validation.constraints.*;
 public class UserOrderForm {
 
 
-    /*
-    @NotBlank(message="氏名が未入力です。")
+
+//    @NotBlank(message="氏名が未入力です。")
     private String customerName;
 
-    @NotBlank(message="連絡先TELが未入力です。")
-    @Numeric(message="連絡先TELは、半角数字で入力してください。")
+//    @NotBlank(message="連絡先TELが未入力です。")
+//    @Numeric(message="連絡先TELは、半角数字で入力してください。")
     private String tel;
 
-    @Email(message="連絡先メールアドレスは、メールの形式で入力してください。")
-    @NotBlank(message="連絡先メールアドレスが未入力です。")
+//    @Email(message="連絡先メールアドレスは、メールの形式で入力してください。")
+//    @NotBlank(message="連絡先メールアドレスが未入力です。")
     private String email;
-
-     */
 
 
     @NotBlank(message="転居元住所（都道府県）が未選択です。")
@@ -62,7 +60,6 @@ public class UserOrderForm {
     @NotNull(message="洗濯機の設置工事申し込みが未選択です。")
     private boolean washingMachineInstallation;
 
-    /*
     public String getCustomerName() {
         return customerName;
     }
@@ -86,8 +83,6 @@ public class UserOrderForm {
     public void setEmail(String email) {
         this.email = email;
     }
-
-     */
 
     public String getOldPrefectureId() {
         return oldPrefectureId;
