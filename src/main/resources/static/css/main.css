@@ -22,13 +22,13 @@ body {
 }
 
 .btn-top {
-    background: #FF0000;
+    background: rgba(255,0,0,0.3);
     width: 50%;
     height: 80px;
     font-weight: bold;
     font-size: 40px;
     margin-top: 50px;
-    opacity: 0.3;
+    color: rgb(255,255,255);
 }
 
 .ui.main.container {

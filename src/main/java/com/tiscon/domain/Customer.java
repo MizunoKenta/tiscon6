@@ -20,6 +20,7 @@ public class Customer implements Serializable {
 
     private String newAddress;
 
+
     public int getCustomerId() {
         return customerId;
     }
@@ -59,6 +60,8 @@ public class Customer implements Serializable {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+
 
     public String getEmail() {
         return email;
