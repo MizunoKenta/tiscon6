@@ -3,6 +3,7 @@ package com.tiscon.controller;
 import com.tiscon.dao.EstimateDao;
 import com.tiscon.dto.UserOrderDto;
 import com.tiscon.form.UserOrderForm;
+import com.tiscon.form.UserOrderForm2;
 import com.tiscon.service.EstimateService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
@@ -59,8 +60,8 @@ public class EstimateController {
     // 新しく追加
     @GetMapping("input2")
     String input2(Model model) {
-        if (!model.containsAttribute("userOrderForm")) {
-            model.addAttribute("userOrderForm", new UserOrderForm());
+        if (!model.containsAttribute("userOrderForm2")) {
+            model.addAttribute("userOrderForm2", new UserOrderForm2());
         }
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
