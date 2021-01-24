@@ -97,6 +97,21 @@ public class EstimateController {
     }
 
     /**
+     * 確認画面2に遷移する。
+     *
+     * @param userOrderForm2 顧客が入力した見積もり依頼情報
+     * @param model         遷移先に連携するデータ
+     * @return 遷移先
+     */
+    @PostMapping(value = "submit", params = "confirm2")
+    String confirm(UserOrderForm2 userOrderForm2, Model model) {
+
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        model.addAttribute("userOrderForm", userOrderForm2);
+        return "confirm2";
+    }
+
+    /**
      * 入力画面に戻る。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
@@ -113,15 +128,15 @@ public class EstimateController {
     /**
      * 確認画面に戻る。
      *
-     * @param userOrderForm 顧客が入力した見積もり依頼情報
+     * @param userOrderForm2 顧客が入力した見積もり依頼情報
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
     @PostMapping(value = "order", params = "backToConfirm")
-    String backToConfirm(UserOrderForm userOrderForm, Model model) {
+    String backToConfirm(UserOrderForm2 userOrderForm2, Model model) {
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
-        model.addAttribute("userOrderForm", userOrderForm);
-        return "confirm";
+        model.addAttribute("userOrderForm", userOrderForm2);
+        return "input2";
     }
 
     /**
@@ -153,7 +168,7 @@ public class EstimateController {
     }
 
     /**
-     * 申し込み完了画面に遷移する。
+     * 入力画面2に遷移する。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
      * @param result        精査結果
@@ -161,7 +176,7 @@ public class EstimateController {
      * @return 遷移先
      */
     @PostMapping(value = "input2")
-    String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+    String input2(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
@@ -169,13 +184,42 @@ public class EstimateController {
             return "confirm";
         }
 
+        // 入力画面に遷移する時点ではデータベースへの情報登録はまだしない
 //        UserOrderDto dto = new UserOrderDto();
 //        BeanUtils.copyProperties(userOrderForm, dto);
 //        estimateService.registerOrder(dto);
-
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
 
         return "input2";
+    }
+
+    /**
+     * 申し込み完了画面に遷移する。
+     *
+     * @param userOrderForm2 顧客が入力した見積もり依頼情報
+     * @param result        精査結果
+     * @param model         遷移先に連携するデータ
+     * @return 遷移先
+     */
+    @PostMapping(value = "order", params = "complete")
+    String complete(@Validated UserOrderForm2 userOrderForm2, BindingResult result, Model model) {
+        //入力内容に問題があれば確認画面を表示する
+        if (result.hasErrors()) {
+
+            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+            model.addAttribute("userOrderForm", userOrderForm2);
+            return "confirm2";
+        }
+
+        // データベースに入力された情報を登録する
+        UserOrderDto dto = new UserOrderDto();
+        BeanUtils.copyProperties(userOrderForm2, dto);
+        estimateService.registerOrder(dto);
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        model.addAttribute("userOrderForm", userOrderForm2);
+
+        return "complete";
     }
 
 }

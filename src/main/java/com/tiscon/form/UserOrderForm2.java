@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 
 /**
  * 顧客が入力する見積もり情報を保持するクラス。
+ * 氏名の入力条件チェック設定があるForm
  *
  * @author Oikawa Yumi
  */
