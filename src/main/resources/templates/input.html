@@ -21,7 +21,7 @@
     <div class="col-sm-12">
       <fieldset>
         <legend>個人情報</legend>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="customerName">氏名</label>
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
@@ -32,7 +32,7 @@
         <div class="form-group">
           <label for="email">連絡先メールアドレス</label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
-        </div>
+        </div>-->
         <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
           <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
@@ -58,7 +58,20 @@
         </div>
         <div class="form-group">
           <label for="month">引越し月 <span style="color:red">※必須</span></label><br>
-          <input type="month" id="month" name="month" th:field="*{month}" class="form-control" value="5"/>
+            <select name="month" id="month" class="form-control">
+              <option value="1"type="text"   th:field="*{month}" class="form-control">1</option>
+              <option value="2"type="text"   th:field="*{month}" class="form-control">2</option>
+              <option value="3"type="text"   th:field="*{month}" class="form-control">3</option>
+              <option value="4"type="text"   th:field="*{month}" class="form-control">4</option>
+              <option value="5"type="text"   th:field="*{month}" class="form-control">5</option>
+              <option value="6"type="text"   th:field="*{month}" class="form-control">6</option>
+              <option value="7"type="text"   th:field="*{month}" class="form-control">7</option>
+              <option value="8"type="text"   th:field="*{month}" class="form-control">8</option>
+              <option value="9"type="text"   th:field="*{month}" class="form-control">9</option>
+              <option value="10"type="text"  th:field="*{month}" class="form-control">10</option>
+              <option value="11"type="text"  th:field="*{month}" class="form-control">11</option>
+              <option value="12"type="text"  th:field="*{month}" class="form-control">12</option>
+            </select>
 
         </div>
 

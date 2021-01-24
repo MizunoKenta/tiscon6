@@ -2,17 +2,19 @@ package com.tiscon.form;
 
 import com.tiscon.validator.Numeric;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * 顧客が入力する見積もり情報を保持するクラス。
  *
  * @author Oikawa Yumi
  */
-public class UserOrderForm {
+public class UserOrderForm2 extends UserOrderForm{
 
 
-    /*
     @NotBlank(message="氏名が未入力です。")
     private String customerName;
 
@@ -24,9 +26,8 @@ public class UserOrderForm {
     @NotBlank(message="連絡先メールアドレスが未入力です。")
     private String email;
 
-     */
 
-
+    /*
     @NotBlank(message="転居元住所（都道府県）が未選択です。")
     private String oldPrefectureId;
 
@@ -62,7 +63,8 @@ public class UserOrderForm {
     @NotNull(message="洗濯機の設置工事申し込みが未選択です。")
     private boolean washingMachineInstallation;
 
-    /*
+     */
+
     public String getCustomerName() {
         return customerName;
     }
@@ -86,8 +88,8 @@ public class UserOrderForm {
     public void setEmail(String email) {
         this.email = email;
     }
+    /*
 
-     */
 
     public String getOldPrefectureId() {
         return oldPrefectureId;
@@ -124,7 +126,6 @@ public class UserOrderForm {
     public String getMonth(){ return month; }
 
     public void setMonth(String month){this.month=month;}
-
 
 
     public String getBox() {
@@ -166,4 +167,6 @@ public class UserOrderForm {
     public void setWashingMachineInstallation(boolean washingMachineInstallation) {
         this.washingMachineInstallation = washingMachineInstallation;
     }
+
+     */
 }
